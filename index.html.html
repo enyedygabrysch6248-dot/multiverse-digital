@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MultiVerse Digital | ويب وتصميم وموشن ومستندات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0E17;--bg2:#121824;--cy:#00F0FF;--vi:#A100FF;--tx:#fff;--mu:#94A3B8;--glass:rgba(18,24,36,.62);--bd:rgba(255,255,255,.09);--grad:linear-gradient(135deg,var(--cy),var(--vi));box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:90px;height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"IBM Plex Sans Arabic",Tajawal,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.8;overflow-x:hidden;
+background-image:radial-gradient(60rem 40rem at 85% -10%,rgba(161,0,255,.18),transparent 60%),radial-gradient(50rem 36rem at -10% 20%,rgba(0,240,255,.10),transparent 60%)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+h1,h2,h3{margin:0;line-height:1.3;letter-spacing:0}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800}
+.lead{color:var(--mu);max-width:56ch;font-size:1.08rem}
+.grad-t{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-head{margin-bottom:48px;display:grid;gap:14px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(11,14,23,.7);border-bottom:1px solid var(--bd)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700}
+.mark{width:34px;height:34px;position:relative}
+.mark i{position:absolute;inset:0;border-radius:10px;border:2px solid var(--cy);transform:rotate(45deg) scale(.78)}
+.mark i+i{border-color:var(--vi);transform:rotate(0) scale(.78);mix-blend-mode:screen}
+.links{display:flex;gap:32px;color:var(--mu);font-weight:500;font-size:.95rem}
+.links a{transition:color .2s}.links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .25s,background .2s}
+.btn-p{background:var(--grad);color:#05070d;box-shadow:0 0 0 rgba(0,240,255,0)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 34px rgba(0,240,255,.35),0 8px 34px rgba(161,0,255,.35)}
+.btn-g{border-color:rgba(0,240,255,.35);color:#fff;background:rgba(0,240,255,.05)}
+.btn-g:hover{background:rgba(0,240,255,.12);box-shadow:0 0 24px rgba(0,240,255,.2)}
+.nav .btn{padding:10px 22px}
+
+/* hero */
+.hero{padding:80px 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.2rem);font-weight:800;margin-bottom:24px}
+.hero .lead{margin-bottom:36px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px}
+.tags span{padding:6px 14px;border:1px solid var(--bd);border-radius:999px;color:var(--mu);font-size:.85rem;background:var(--glass)}
+
+.stage{aspect-ratio:1;max-width:460px;margin-inline:auto;width:100%;position:relative;perspective:1000px;display:grid;place-items:center}
+.glow{position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(161,0,255,.35),rgba(0,240,255,.12) 55%,transparent 70%)}
+.scene{width:46%;aspect-ratio:1;position:relative;transform-style:preserve-3d;animation:spin 22s linear infinite}
+.face{position:absolute;inset:0;border:1.5px solid var(--cy);background:rgba(0,240,255,.05);box-shadow:0 0 24px rgba(0,240,255,.35),inset 0 0 24px rgba(0,240,255,.15);backdrop-filter:blur(2px)}
+.f1{transform:translateZ(calc(var(--s)/2))}.f2{transform:rotateY(180deg) translateZ(calc(var(--s)/2))}
+.f3{transform:rotateY(90deg) translateZ(calc(var(--s)/2));border-color:var(--vi);box-shadow:0 0 24px rgba(161,0,255,.45),inset 0 0 24px rgba(161,0,255,.2);background:rgba(161,0,255,.06)}
+.f4{transform:rotateY(-90deg) translateZ(calc(var(--s)/2));border-color:var(--vi);box-shadow:0 0 24px rgba(161,0,255,.45),inset 0 0 24px rgba(161,0,255,.2);background:rgba(161,0,255,.06)}
+.f5{transform:rotateX(90deg) translateZ(calc(var(--s)/2))}.f6{transform:rotateX(-90deg) translateZ(calc(var(--s)/2))}
+.ring{position:absolute;inset:50%;border-radius:50%;border:1.5px solid;transform-style:preserve-3d}
+.r1{width:86%;height:86%;margin:-43% 0 0 -43%;border-color:rgba(0,240,255,.6);transform:rotateX(70deg);box-shadow:0 0 20px rgba(0,240,255,.4)}
+.r2{width:100%;height:100%;margin:-50% 0 0 -50%;border-color:rgba(161,0,255,.65);transform:rotateY(70deg) rotateZ(20deg);box-shadow:0 0 20px rgba(161,0,255,.45)}
+.r3{width:72%;height:72%;margin:-36% 0 0 -36%;border-color:rgba(255,255,255,.25);transform:rotateX(30deg) rotateY(50deg)}
+.orb{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cy);box-shadow:0 0 18px var(--cy)}
+.o1{top:12%;right:14%}.o2{bottom:16%;left:10%;background:var(--vi);box-shadow:0 0 18px var(--vi)}
+.chip{position:absolute;padding:8px 14px;border-radius:12px;background:var(--glass);border:1px solid var(--bd);backdrop-filter:blur(10px);font-size:.8rem;font-weight:600}
+.c1{top:6%;right:0}.c2{bottom:10%;left:0}.c3{top:46%;left:-2%}
+.halo{width:58%;aspect-ratio:1;border-radius:50%;border:2px solid rgba(0,240,255,.55);box-shadow:0 0 40px rgba(0,240,255,.3),inset 0 0 40px rgba(161,0,255,.3)}
+
+/* services */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{position:relative;padding:28px;border-radius:22px;background:var(--glass);border:1px solid var(--bd);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .3s,border-color .3s,box-shadow .3s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,0%),rgba(0,240,255,.16),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(0,240,255,.5);box-shadow:0 0 0 1px rgba(161,0,255,.35),0 18px 50px rgba(0,240,255,.12)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:22px;background:linear-gradient(135deg,rgba(0,240,255,.18),rgba(161,0,255,.22));border:1px solid rgba(0,240,255,.3)}
+.ico svg{width:24px;height:24px;stroke:var(--cy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.2rem;margin-bottom:10px}
+.card p{margin:0 0 16px;color:var(--mu);font-size:.95rem}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:#cbd5e1;font-size:.88rem}
+.card li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--grad);margin-inline-end:10px}
+
+/* portfolio */
+.pf{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work{position:relative;aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:1px solid var(--bd);background:var(--bg2);cursor:pointer;transition:border-color .3s,box-shadow .3s}
+.work.wide{grid-column:span 2}
+.art{position:absolute;inset:0;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.work:hover .art{transform:scale(1.08)}
+.work:hover{border-color:rgba(0,240,255,.6);box-shadow:0 0 40px rgba(0,240,255,.2),0 0 60px rgba(161,0,255,.18)}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(transparent,rgba(11,14,23,.92) 70%);z-index:2}
+.cap b{display:block;font-size:1.05rem}.cap span{color:var(--mu);font-size:.85rem}
+/* css mockups */
+.a1{background:linear-gradient(160deg,#0f1630,#1a1040)}
+.a1::before{content:"";position:absolute;left:12%;right:12%;top:14%;height:48%;border-radius:12px;border:1px solid rgba(0,240,255,.5);background:linear-gradient(#0B0E17,#121824);box-shadow:0 0 30px rgba(0,240,255,.25)}
+.a1::after{content:"";position:absolute;left:18%;top:22%;width:40%;height:8px;border-radius:4px;background:var(--grad);box-shadow:0 18px 0 -2px rgba(255,255,255,.18),0 36px 0 -2px rgba(255,255,255,.12)}
+.a2{background:radial-gradient(circle at 30% 35%,var(--cy) 0 14%,transparent 15%),radial-gradient(circle at 62% 55%,var(--vi) 0 22%,transparent 23%),#0d1220}
+.a2::after{content:"";position:absolute;inset:22%;border:2px solid rgba(255,255,255,.7);transform:rotate(45deg);border-radius:18%}
+.a3{background:linear-gradient(135deg,#A100FF,#00F0FF)}
+.a3::before{content:"";position:absolute;left:16%;top:12%;width:34%;height:70%;background:#0B0E17;transform:skewX(-8deg);border-radius:6px;box-shadow:70px 20px 0 -8px rgba(11,14,23,.5)}
+.a4{background:#0a0d16}
+.a4::before{content:"";position:absolute;left:50%;top:46%;width:64px;height:64px;margin:-32px;border-radius:50%;background:var(--grad);box-shadow:0 0 50px rgba(161,0,255,.7)}
+.a4::after{content:"";position:absolute;left:50%;top:46%;margin:-9px -6px;border-left:18px solid #05070d;border-top:11px solid transparent;border-bottom:11px solid transparent;z-index:1}
+.a5{background:linear-gradient(180deg,#121824,#0B0E17)}
+.a5::before{content:"";position:absolute;left:10%;right:10%;top:16%;bottom:34%;border-radius:10px;background:repeating-linear-gradient(90deg,rgba(0,240,255,.5) 0 8%,transparent 8% 14%);mask:linear-gradient(transparent,#000 40%);-webkit-mask:linear-gradient(transparent,#000 40%)}
+.a5::after{content:"";position:absolute;left:10%;width:50%;bottom:30%;height:6px;border-radius:3px;background:var(--grad)}
+.a6{background:conic-gradient(from 200deg at 50% 50%,#00F0FF,#A100FF,#0B0E17 60%,#00F0FF)}
+.a6::after{content:"";position:absolute;inset:26%;border-radius:50%;background:#0B0E17;box-shadow:0 0 0 10px rgba(11,14,23,.5)}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--bd);border-radius:24px;background:var(--glass);overflow:hidden;backdrop-filter:blur(14px)}
+.feat div{padding:32px 28px;border-inline-end:1px solid var(--bd)}
+.feat div:last-child{border-inline-end:0}
+.feat h3{font-size:1.1rem;margin-bottom:8px}
+.feat p{margin:0;color:var(--mu);font-size:.93rem}
+.feat .big{font-size:2.4rem;font-weight:800;margin-bottom:10px;display:block;line-height:1}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+.panel{padding:32px;border-radius:24px;background:var(--glass);border:1px solid rgba(0,240,255,.25);box-shadow:0 0 60px rgba(161,0,255,.12);backdrop-filter:blur(16px)}
+.fld{display:grid;gap:8px;margin-bottom:18px}
+label{font-size:.88rem;font-weight:600;color:#cbd5e1}
+input,select,textarea{width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--bd);background:rgba(11,14,23,.8);color:#fff;font:inherit;transition:border-color .2s,box-shadow .2s}
+select option{background:#121824}
+#e{text-align:right}textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--cy);box-shadow:0 0 0 3px rgba(0,240,255,.15)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ok{display:none;margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(0,240,255,.08);border:1px solid rgba(0,240,255,.4);color:#c9fbff;font-size:.92rem}
+.ok.show{display:block}
+.social{display:flex;gap:12px;margin-top:28px}
+.social a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--bd);background:var(--glass);transition:border-color .2s,box-shadow .2s,transform .2s}
+.social a:hover{border-color:var(--cy);box-shadow:0 0 20px rgba(0,240,255,.3);transform:translateY(-2px)}
+.social svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.meta{margin-top:28px;display:grid;gap:6px;color:var(--mu)}
+.meta b{color:#fff}
+
+footer{border-top:1px solid var(--bd);padding:48px 0 32px;background:rgba(18,24,36,.5)}
+.f-top{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.f-top p{color:var(--mu);max-width:36ch;margin:14px 0 0;font-size:.92rem}
+.f-cols{display:flex;gap:56px;flex-wrap:wrap}
+.f-cols div{display:grid;gap:10px;align-content:start;font-size:.92rem}
+.f-cols b{margin-bottom:4px}
+.f-cols a{color:var(--mu)}.f-cols a:hover{color:#fff}
+.copy{margin-top:40px;padding-top:24px;border-top:1px solid var(--bd);color:var(--mu);font-size:.85rem}
+
+@media(max-width:1020px){.grid4{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:repeat(2,1fr)}.feat div:nth-child(2){border-inline-end:0}.feat div:nth-child(-n+2){border-bottom:1px solid var(--bd)}}
+@media(max-width:860px){.hero-grid,.contact{grid-template-columns:1fr}.links{display:none}.pf{grid-template-columns:repeat(2,1fr)}section{padding:72px 0}.stage{max-width:360px}}
+@media(max-width:560px){.grid4,.pf,.feat,.row2{grid-template-columns:1fr}.work.wide{grid-column:auto}.feat div{border-inline-end:0;border-bottom:1px solid var(--bd)}.feat div:last-child{border-bottom:0}.wrap{padding:0 18px}.nav .btn{padding:9px 16px;font-size:.85rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="الصفحة الرئيسية"><span class="mark"><i></i><i></i></span>MultiVerse Digital</a>
+    <nav class="links" aria-label="القائمة الرئيسية"><a href="#services">الخدمات</a><a href="#portfolio">أعمالنا</a><a href="#about">من نحن</a><a href="#contact">تواصل معنا</a></nav>
+    <a class="btn btn-p" href="#contact">ابدأ الآن</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>حيث يلتقي الكود بـ<span class="grad-t">العوالم الإبداعية</span></h1>
+      <p class="lead">فريق واحد لحضورك الرقمي بالكامل: مواقع وتطبيقات، شعارات وبوسترات، مونتاج وتحريك، إضافةً إلى تقارير وعروض تقديمية جاهزة للتسليم أو العرض.</p>
+      <div class="cta-row">
+        <a class="btn btn-p" href="#services">استكشف خدماتنا</a>
+        <a class="btn btn-g" href="#portfolio">شاهد أعمالنا</a>
+      </div>
+      <div class="tags"><span>ويب</span><span>تصميم</span><span>موشن</span><span>محتوى</span></div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="halo"></div>
+      <span class="orb o1"></span><span class="orb o2"></span>
+      <span class="chip c1">&lt;/&gt; كود</span><span class="chip c2">موشن</span><span class="chip c3">هوية</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head"><h2>كل ما تحتاجه <span class="grad-t">تحت سقف واحد</span></h2><p class="lead">اختر خدمة واحدة أو اجمع بينها. كل مشروع يحظى بنفس العناية من أول مسودة حتى الملف النهائي.</p></div>
+    <div class="grid4">
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg></div><h3>الويب والبرمجة</h3><p>مواقع سريعة ومتجاوبة مصممة لتحويل الزوار إلى عملاء.</p><ul><li>تصميم مواقع عصرية</li><li>برمجة مخصصة</li><li>صفحات هبوط</li></ul></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5ZM3 13l9 5 9-5"/></svg></div><h3>الهوية والتصميم</h3><p>هوية بصرية يتعرف عليها الناس ويتذكرونها في كل قناة.</p><ul><li>شعارات وهوية العلامة</li><li>بوسترات ومطبوعات</li><li>تصميم واجهات وتجربة المستخدم</li></ul></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9.5 5 2.5-5 2.5v-5Z"/></svg></div><h3>الفيديو والموشن</h3><p>مقاطع وتحريك تشدّ الانتباه حتى الثانية الأخيرة.</p><ul><li>مونتاج فيديو احترافي</li><li>موشن غرافيك</li><li>رسوم متحركة ثنائية الأبعاد</li></ul></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6V3Z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></div><h3>التقارير والعروض</h3><p>كتابة واضحة وشرائح أنيقة للدراسة والعمل والمستثمرين.</p><ul><li>تقارير أكاديمية وتجارية</li><li>عروض PowerPoint تنفيذية</li><li>كتابة وتدقيق</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-head"><h2>أعمال مختارة</h2><p class="lead">نماذج من المشاريع التي ننفذها. التصاميم المعروضة نماذج تجريبية، يمكن استبدالها بأعمال عملائك.</p></div>
+    <div class="pf">
+      <div class="work wide"><div class="art a1"></div><div class="cap"><b>متجر نوفا</b><span>موقع تجارة إلكترونية</span></div></div>
+      <div class="work"><div class="art a2"></div><div class="cap"><b>أوربت لابز</b><span>شعار وهوية بصرية</span></div></div>
+      <div class="work"><div class="art a3"></div><div class="cap"><b>مهرجان الصيف</b><span>سلسلة بوسترات فعالية</span></div></div>
+      <div class="work"><div class="art a4"></div><div class="cap"><b>فيديو الإطلاق</b><span>فيديو وموشن غرافيك</span></div></div>
+      <div class="work"><div class="art a5"></div><div class="cap"><b>عرض المستثمرين</b><span>عرض تقديمي تجاري</span></div></div>
+      <div class="work wide"><div class="art a6"></div><div class="cap"><b>شخصيات بالس</b><span>رسوم متحركة 2D</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>لماذا <span class="grad-t">تختار MultiVerse</span></h2><p class="lead">جهات أقل لتتابعها، ومعيار واحد ثابت من البداية حتى النهاية.</p></div>
+    <div class="feat">
+      <div><span class="big grad-t">سريع</span><h3>سرعة في التسليم</h3><p>جداول زمنية واضحة ومعاينات منتظمة، فلا تنتظر دون أن تعرف ما يجري.</p></div>
+      <div><span class="big grad-t">دقيق</span><h3>جودة عالية المستوى</h3><p>إتقان دقيق لكل صفحة ولقطة وشريحة قبل أن تصلك.</p></div>
+      <div><span class="big grad-t">واحد</span><h3>كل شيء في مكان واحد</h3><p>موقع وهوية وفيديو ومستندات من فريق واحد يتشارك الرؤية نفسها.</p></div>
+      <div><span class="big grad-t">جريء</span><h3>التميّز الإبداعي</h3><p>أفكار أصلية مبنية على أهدافك، وليست قوالب مكررة.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2>أخبرنا ماذا <span class="grad-t">تريد أن تبني</span></h2>
+      <p class="lead" style="margin-top:16px">صف مشروعك وسنرد عليك بخطة وعرض سعر.</p>
+      <div class="meta"><span><b>البريد</b> <span dir="ltr">hello@multiversedigital.com</span></span><span><b>ساعات العمل</b> من الأحد إلى الخميس، 9:00 ص – 6:00 م</span></div>
+      <div class="social" aria-label="وسائل التواصل">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z"/></svg></a>
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15ZM8 13l9-6"/></svg></a>
+      </div>
+    </div>
+    <form class="panel" id="f" novalidate>
+      <div class="row2">
+        <div class="fld"><label for="n">الاسم</label><input id="n" name="n" autocomplete="name" required></div>
+        <div class="fld"><label for="e">البريد الإلكتروني</label><input id="e" name="e" type="email" dir="ltr" autocomplete="email" required></div>
+      </div>
+      <div class="fld"><label for="s">الخدمة</label>
+        <select id="s"><option>الويب والبرمجة</option><option>الهوية والتصميم</option><option>الفيديو والموشن</option><option>التقارير والعروض</option><option>غير متأكد بعد</option></select></div>
+      <div class="fld"><label for="m">تفاصيل المشروع</label><textarea id="m" placeholder="ماذا تحتاج، ومتى؟" required></textarea></div>
+      <button class="btn btn-p" type="submit" style="width:100%">أرسل الطلب</button>
+      <div class="ok" id="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div><a class="logo" href="#top"><span class="mark"><i></i><i></i></span>MultiVerse Digital</a><p>ويب وتصميم وموشن ومستندات من فريق إبداعي واحد.</p></div>
+      <div class="f-cols">
+        <div><b>الخدمات</b><a href="#services">الويب والبرمجة</a><a href="#services">الهوية والتصميم</a><a href="#services">الفيديو والموشن</a><a href="#services">التقارير والعروض</a></div>
+        <div><b>الشركة</b><a href="#portfolio">أعمالنا</a><a href="#about">من نحن</a><a href="#contact">تواصل معنا</a></div>
+      </div>
+    </div>
+    <div class="copy">© 2026 MultiVerse Digital. جميع الحقوق محفوظة.</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-r.left)+'px');c.style.setProperty('--y',(e.clientY-r.top)+'px')})});
+document.getElementById('f').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var n=document.getElementById('n'),e=document.getElementById('e'),m=document.getElementById('m'),ok=document.getElementById('ok');
+  if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!m.value.trim()){ok.textContent='أضف اسمك وبريدًا إلكترونيًا صحيحًا ووصفًا مختصرًا للمشروع.';ok.classList.add('show');return}
+  ok.textContent='شكرًا '+n.value.trim()+'، طلبك جاهز للإرسال.';ok.classList.add('show');this.reset();
+});
+</script>
+</body>
+</html>
