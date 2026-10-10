@@ -128,7 +128,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--cy);box-sha
 .social{display:flex;gap:12px;margin-top:28px}
 .social a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--bd);background:var(--glass);transition:border-color .2s,box-shadow .2s,transform .2s}
 .social a:hover{border-color:var(--cy);box-shadow:0 0 20px rgba(0,240,255,.3);transform:translateY(-2px)}
-.social svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.social a.wa{width:auto;padding:0 18px;gap:10px;font-weight:600;font-size:.92rem}.social svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .meta{margin-top:28px;display:grid;gap:6px;color:var(--mu)}
 .meta b{color:#fff}
 
@@ -220,12 +220,9 @@ footer{border-top:1px solid var(--bd);padding:48px 0 32px;background:rgba(18,24,
     <div>
       <h2>أخبرنا ماذا <span class="grad-t">تريد أن تبني</span></h2>
       <p class="lead" style="margin-top:16px">صف مشروعك وسنرد عليك بخطة وعرض سعر.</p>
-      <div class="meta"><span><b>البريد</b> <span dir="ltr">hello@multiversedigital.com</span></span><span><b>ساعات العمل</b> من الأحد إلى الخميس، 9:00 ص – 6:00 م</span></div>
+      <div class="meta"><span><b>البريد</b> <span dir="ltr">notifymesupport@gmail.com</span></span><span><b>ساعات العمل</b> على مدار الساعة، طوال أيام الأسبوع</span></div>
       <div class="social" aria-label="وسائل التواصل">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8Z"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z"/></svg></a>
-        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15ZM8 13l9-6"/></svg></a>
+        <a class="wa" href="https://wa.me/9647861547469" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6L3 21Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2L9 9.5Z"/></svg>تواصل عبر واتساب</a>
       </div>
     </div>
     <form class="panel" id="f" novalidate>
@@ -260,9 +257,14 @@ footer{border-top:1px solid var(--bd);padding:48px 0 32px;background:rgba(18,24,
 document.querySelectorAll('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-r.left)+'px');c.style.setProperty('--y',(e.clientY-r.top)+'px')})});
 document.getElementById('f').addEventListener('submit',function(ev){
   ev.preventDefault();
-  var n=document.getElementById('n'),e=document.getElementById('e'),m=document.getElementById('m'),ok=document.getElementById('ok');
-  if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!m.value.trim()){ok.textContent='أضف اسمك وبريدًا إلكترونيًا صحيحًا ووصفًا مختصرًا للمشروع.';ok.classList.add('show');return}
-  ok.textContent='شكرًا '+n.value.trim()+'، طلبك جاهز للإرسال.';ok.classList.add('show');this.reset();
+  var f=this,n=document.getElementById('n'),e=document.getElementById('e'),m=document.getElementById('m'),sv=document.getElementById('s'),ok=document.getElementById('ok'),b=f.querySelector('button');
+  function say(t,bad){ok.textContent=t;ok.classList.add('show');ok.style.borderColor=bad?'rgba(255,90,90,.5)':'';ok.style.color=bad?'#ffd0d0':''}
+  if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!m.value.trim()){say('أضف اسمك وبريدًا إلكترونيًا صحيحًا ووصفًا مختصرًا للمشروع.',true);return}
+  b.disabled=true;
+  fetch('https://formspree.io/f/mljgnljr',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:n.value.trim(),email:e.value.trim(),service:sv.value,message:m.value.trim()})})
+  .then(function(r){if(!r.ok)throw 0;say('شكرًا '+n.value.trim()+'، وصلنا طلبك وسنرد عليك قريبًا.');f.reset()})
+  .catch(function(){say('تعذّر إرسال الطلب. حاول مرة ثانية أو راسلنا على واتساب.',true)})
+  .then(function(){b.disabled=false});
 });
 </script>
 </body>
